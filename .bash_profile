@@ -76,7 +76,7 @@ alias balena_etcher="sudo /Applications/balenaEtcher.app/Contents/MacOS/balenaEt
 #
 alias LAN_IPs_store="nmap -sP 192.168.2.0/24 | grep 192 | sort > workspace/usual_ips.txt"
 alias LAN_IPs_check="nmap -sP 192.168.2.0/24 | grep 192 | sort  > workspace/new_ips.txt && diff workspace/usual_ips.txt workspace/new_ips.txt"
-alias push_cbot='git add ~chalmers/git/evon-01/; git commit -m "changes (just pushing to update something Im testing on the pi, nothing big)"; git push'
+
 
 alias sherlock='/Users/chalmers/bin/sherlock/sherlock/venv/bin/python3 /Users/chalmers/bin/sherlock/sherlock'
 
