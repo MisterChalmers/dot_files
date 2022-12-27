@@ -60,6 +60,11 @@ function venv_util ()
 alias python="python3"
 
 #
+# ruby env stuff
+#
+eval "$(rbenv init - bash)"
+
+#
 # aliases
 #
 alias ll='ls -l'
