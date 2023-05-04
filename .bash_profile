@@ -92,3 +92,10 @@ else
   alias fix_keychain='eval `ssh-agent` && eval `keychain --eval id_rsa id_ed25519`'
   if ssh-add -l > /dev/null; then true; else fix_keychain ; fi
 fi
+
+#
+# add shortcut for z
+#
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
+fi
