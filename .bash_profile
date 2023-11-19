@@ -62,7 +62,11 @@ alias python="python3"
 #
 # ruby env stuff
 #
-eval "$(rbenv init - bash)"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	eval "$(rbenv init - bash)"
+else
+	eval "$(~/.rbenv/bin/rbenv init - bash)"
+fi
 
 #
 # aliases
