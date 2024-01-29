@@ -30,6 +30,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   
   # add gnupg to path
   PATH="/usr/local/opt/gnupg@1.4/libexec/gpgbin:$PATH"
+
+  # shortcut to iCloud directory
+  alias icloud_dir="cd /Users/chalmers/Library/Mobile\ Documents/com~apple~CloudDocs"
+
+  # setting path for global python binary
+  alias python="/usr/local/bin/python3"
+  alias pip="/usr/local/bin/pip3"
 fi
 
 # enable color support of ls and also add handy aliases
@@ -57,7 +64,7 @@ function venv_util ()
     source ./venv/bin/activate
   fi
 }
-alias python="python3"
+
 
 #
 # ruby env stuff
@@ -103,3 +110,12 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 fi
+
+#
+# password creation utility
+#
+if hash diceware 2>/dev/null; then
+	alias diceware_passwd="diceware -n 4 -d -"
+fi
+
+PATH="/usr/local/Cellar/stlink/1.7.0/bin:$PATH"
