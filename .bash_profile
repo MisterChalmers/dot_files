@@ -31,12 +31,18 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   # add gnupg to path
   PATH="/usr/local/opt/gnupg@1.4/libexec/gpgbin:$PATH"
 
+  # add system python user libraries to path
+  PATH="/Users/chalmers/Library/Python/3.11/bin:$PATH"
+
   # shortcut to iCloud directory
   alias icloud_dir="cd /Users/chalmers/Library/Mobile\ Documents/com~apple~CloudDocs"
 
   # setting path for global python binary
-  alias python="/usr/local/bin/python3"
-  alias pip="/usr/local/bin/pip3"
+  PATH="/usr/local/bin:$PATH"
+  alias python="python3"
+  alias pip="pip3"
+
+  PATH="/usr/local/Cellar/stlink/1.7.0/bin:$PATH"
 fi
 
 # enable color support of ls and also add handy aliases
@@ -56,13 +62,16 @@ fi
 #
 function venv_util ()
 {
-  if [ -d "$(pwd)/venv" ]
-  then
-    source ./venv/bin/activate
+  if [ -d "$(pwd)/venv" ]; then
+    echo ""
   else
     python3 -m venv "$(pwd)"/venv
-    source ./venv/bin/activate
   fi
+  
+  source ./venv/bin/activate
+
+  alias python="$(pwd)/venv/bin/python"
+  alias pip="$(pwd)/venv/bin/pip"
 }
 
 
@@ -118,4 +127,4 @@ if hash diceware 2>/dev/null; then
 	alias diceware_passwd="diceware -n 4 -d -"
 fi
 
-PATH="/usr/local/Cellar/stlink/1.7.0/bin:$PATH"
+
