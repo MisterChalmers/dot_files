@@ -127,4 +127,16 @@ if hash diceware 2>/dev/null; then
 	alias diceware_passwd="diceware -n 4 -d -"
 fi
 
+#
+# java utility aliases
+#
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	alias karate="/usr/bin/java -jar /Users/chalmers/bin/karate-1.5.0.RC3.jar"
+fi
 
+#
+# Import stuff that's local to this machine
+#
+if [ -f $HOME/local_variables.sh ]; then 
+	source $HOME/local_variables.sh
+fi
