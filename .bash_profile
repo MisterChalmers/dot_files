@@ -11,7 +11,7 @@ export BASH_IT="$HOME/.bash_it"
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location /.bash_it/themes/
-export BASH_IT_THEME='90210'
+export BASH_IT_THEME='rjorgenson'
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
@@ -78,12 +78,10 @@ function venv_util ()
 #
 # ruby env stuff
 #
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if command -v rbenv &> /dev/null
+then
 	eval "$(rbenv init - bash)"
-else
-	eval "$(~/.rbenv/bin/rbenv init - bash)"
 fi
-
 #
 # aliases
 #
